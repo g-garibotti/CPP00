@@ -1,4 +1,5 @@
 #include "phonebook.hpp"
+#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <sstream>
@@ -6,7 +7,7 @@
 
 PhoneBook::PhoneBook() : ContactCount(0), OldestContactIndex(0)
 {
-	std::cout << "PhoneBook created!" << std::endl;
+	std::cout << "PhoneBook construcor called!" << std::endl;
 }
 
 PhoneBook::~PhoneBook()
@@ -107,8 +108,7 @@ void PhoneBook::SearchContact()
 			return ;
 		}
 	}
-	std::istringstream iss(input);
-	iss >> index;
+	index = atoi(input.c_str());
 	if (index < 0 || index >= ContactCount)
 	{
 		std::cout << "Index out of range!" << std::endl;
